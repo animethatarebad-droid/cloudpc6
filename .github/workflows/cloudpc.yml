@@ -22,5 +22,7 @@ jobs:
         npm install -g localtunnel
 
     - name: Start tunnel
-      run: |
-        npx localtunnel --port 3000 --subdomain cloudchrome123
+     run: |
+      nohup npx localtunnel --port 3000 --subdomain cloudchrome123 > tunnel.log 2>&1 &
+      sleep 5
+      cat tunnel.log
