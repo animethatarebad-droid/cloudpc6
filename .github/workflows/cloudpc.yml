@@ -23,4 +23,4 @@ jobs:
 
     - name: Start tunnel
       run: |
-        lt --port 3000 --subdomain cloudchrome123
+        npx localtunnel --port 3000 --subdomain cloudchrome123
