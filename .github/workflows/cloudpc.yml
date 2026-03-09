@@ -1,16 +1,21 @@
-name: Cloud Browser
+name: Cloud Laptop
 
 on: [workflow_dispatch]
 
 jobs:
-  browser:
+  desktop:
     runs-on: ubuntu-latest
 
     steps:
 
-    - name: Start Chrome container
+    - name: Run Desktop Container
       run: |
-        docker run -d -p 3000:3000 browserless/chrome
+        docker run -d \
+        -p 3000:3000 \
+        -e PUID=1000 \
+        -e PGID=1000 \
+        -e TZ=UTC \
+        linuxserver/webtop:ubuntu-xfce
 
     - name: Install tunnel
       run: |
@@ -18,4 +23,4 @@ jobs:
 
     - name: Start tunnel
       run: |
-        lt --port 3000
+        lt --port 3000 --subdomain cloudchrome123
