@@ -35,4 +35,4 @@ jobs:
 
     - name: Public URL
       run: |
-        npx localtunnel --port 6080
+       npx localtunnel --port 6080 --local-host localhost
